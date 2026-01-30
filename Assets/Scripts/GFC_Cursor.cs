@@ -13,6 +13,7 @@ public class GFC_Cursor : MonoBehaviour
         gameCamera = Camera.main;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        this.gameObject.tag = "Cursor";
     }
 
     // Update is called once per frame
