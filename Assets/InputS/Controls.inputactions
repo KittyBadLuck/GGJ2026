@@ -12,6 +12,15 @@
                     "id": "b1ad32fa-8321-4d79-961d-ed0621805232",
                     "expectedControlType": "",
                     "processors": "",
+                    "interactions": "Press(behavior=1)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Release",
+                    "type": "Button",
+                    "id": "df399003-9e59-40fb-8fc9-83f3cb21e89e",
+                    "expectedControlType": "",
+                    "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 }
@@ -25,6 +34,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Freeze",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cdb4cd3a-6384-4b59-acea-14d39a57c33b",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Release",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
