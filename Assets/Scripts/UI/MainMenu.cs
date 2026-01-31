@@ -1,3 +1,4 @@
+using MyBox;
 using UnityEngine;
 
 public class MainMenu : MonoBehaviour
@@ -11,6 +12,12 @@ public class MainMenu : MonoBehaviour
     public void CloseSelectLevelMenu()
     {
         selectLevelMenu.SetActive(false);
+    }
+
+    [ButtonMethod]
+    private void DeletePlayerPref()
+    {
+        PlayerPrefs.DeleteAll();
     }
     public void QuitGame()
     {
