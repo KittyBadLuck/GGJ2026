@@ -1,5 +1,6 @@
 using MyBox;
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,12 +17,12 @@ public class PuzzleManager : MonoBehaviour
 
     private void Start()
     {
-        DragController.OnItemFroze += CheckWin;
+        DragController.OnItemFroze += MarkForCheck;
         Alarm.OnAlarmTriggered += AlarmTriggered;
     }
     private void OnDestroy()
     {
-        DragController.OnItemFroze -= CheckWin;
+        DragController.OnItemFroze -= MarkForCheck;
         Alarm.OnAlarmTriggered -= AlarmTriggered;
     }
 
@@ -32,10 +33,15 @@ public class PuzzleManager : MonoBehaviour
         OnFail?.Invoke(1-diff);
 
     }
+    private void MarkForCheck()
+    {
+        StartCoroutine(WaitForEndOfFrame());
+    }
     [ButtonMethod]
     public void CheckWin()
     {
         float diff = shapeDiffDetector.DetectDiffPercentage();
+        Debug.Log($"diff is {diff}");
         if (diff < WIN_THRESHOLD)
         {
             SaveScore(1 - diff);
@@ -49,6 +55,11 @@ public class PuzzleManager : MonoBehaviour
                 OnFail?.Invoke(1 - diff);
             }
         }
+    }
+    private IEnumerator WaitForEndOfFrame()
+    {
+        yield return new WaitForEndOfFrame();
+        CheckWin();
     }
 
     private void SaveScore(float score)
