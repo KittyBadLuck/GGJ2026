@@ -1,4 +1,5 @@
 using System;
+using Mono.Cecil;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,6 +20,8 @@ public class DragController : MonoBehaviour
     public float force = 100.0f;
     
     private TargetJoint2D targetJoint2D;
+    
+    public InputActionReference freeze;
 
     void OnMouseDown()
     {
@@ -70,5 +73,22 @@ public class DragController : MonoBehaviour
             targetJoint2D.target = mousePosition;
         }
         
+    }
+
+    void OnEnable()
+    {
+        freeze.action.started += Freeze;
+    }
+
+    private void OnDisable()
+    {
+        freeze.action.started -= Freeze;
+    }
+
+    private void Freeze(InputAction.CallbackContext context)
+    {
+        var body = this.GetComponent<Rigidbody2D>();
+        body.simulated = false;
+        this.gameObject.layer = LayerMask.NameToLayer("Mask");
     }
 }
