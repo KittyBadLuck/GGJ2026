@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 3d343451ca509e147a631f42492eb201
+guid: 74a5bb60454369847b11392e4c6859f0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6675669677758570782
-    second: thing_0
+      213: 732519643079517068
+    second: paint_screen_spritesheet_0
   - first:
-      213: 4905440840654316509
-    second: thing_1
+      213: 5576463466657151893
+    second: paint_screen_spritesheet_1
   - first:
-      213: -2672778182764465505
-    second: thing_2
+      213: 1634776655357964880
+    second: paint_screen_spritesheet_2
   - first:
-      213: 4904742392089166058
-    second: thing_3
+      213: 16477621846563359
+    second: paint_screen_spritesheet_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,13 +49,13 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -122,89 +122,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: thing_0
+      name: paint_screen_spritesheet_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 19
-        width: 16
-        height: 79
+        x: 8
+        y: 6
+        width: 332
+        height: 268
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e1165a4e33eb4ac50800000000000000
-      internalID: 6675669677758570782
+      spriteID: c8320ccfbbe6a2a00800000000000000
+      internalID: 732519643079517068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: thing_1
+      name: paint_screen_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 30
-        y: 0
-        width: 20
-        height: 98
+        x: 350
+        y: 7
+        width: 337
+        height: 269
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dd3e4e55470a31440800000000000000
-      internalID: 4905440840654316509
+      spriteID: 59bfa014af3936d40800000000000000
+      internalID: 5576463466657151893
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: thing_2
+      name: paint_screen_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 53
-        y: 0
-        width: 17
-        height: 79
+        x: 696
+        y: 7
+        width: 334
+        height: 268
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f92f8ec576268ead0800000000000000
-      internalID: -2672778182764465505
+      spriteID: 05276b5e4b4efa610800000000000000
+      internalID: 1634776655357964880
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: thing_3
+      name: paint_screen_spritesheet_3
       rect:
         serializedVersion: 2
-        x: 75
-        y: 0
-        width: 23
-        height: 79
+        x: 1040
+        y: 7
+        width: 337
+        height: 269
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ae0464b1835211440800000000000000
-      internalID: 4904742392089166058
+      spriteID: f1a58ec4f4a8a3000800000000000000
+      internalID: 16477621846563359
       vertices: []
       indices: 
       edges: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 69ef94d804133df498ee9eb25cb56408
     internalID: 0
     vertices: []
     indices: 
@@ -221,12 +221,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":348.0,"y":280.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      thing_0: 6675669677758570782
-      thing_1: 4905440840654316509
-      thing_2: -2672778182764465505
-      thing_3: 4904742392089166058
+      paint_screen_spritesheet_0: 732519643079517068
+      paint_screen_spritesheet_1: 5576463466657151893
+      paint_screen_spritesheet_2: 1634776655357964880
+      paint_screen_spritesheet_3: 16477621846563359
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
