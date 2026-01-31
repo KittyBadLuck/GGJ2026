@@ -23,11 +23,13 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        Time.timeScale = 1;
         _isOpen = false;
         overlay.SetActive(false);
     }
     public void Open()
     {
+        Time.timeScale = 0;
         _isOpen = true;
         overlay.SetActive(true);
     }

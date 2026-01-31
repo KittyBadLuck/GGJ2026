@@ -74,6 +74,8 @@ public class DragController : MonoBehaviour
             lineRenderer.positionCount = 2;
             lineRenderer.material = lineMaterial;
             lineRenderer.startWidth = 0.1f;
+            lineRenderer.sortingLayerName = "UI";
+            lineRenderer.sortingOrder = 50;
             
         }
 
@@ -100,6 +102,7 @@ public class DragController : MonoBehaviour
                 lineRenderer.SetPosition(0, targetJoint2D.transform.TransformPoint(targetJoint2D.anchor));
                 lineRenderer.SetPosition(1, mousePosition);
                 float distance = Vector3.Distance(targetJoint2D.transform.TransformPoint(targetJoint2D.anchor), mousePosition);
+                lineRenderer.textureScale = new Vector2(2, 1);
             }
         }
         

@@ -33,7 +33,7 @@ public class EndScreen : MonoBehaviour
     {
         isOpen = true;
         overlay.SetActive(true);
-        scoreText.text = $"Score : {percentage * 100}%";
+        scoreText.text = $"Score : {(percentage * 100).ToString("F2")}%";
         resultText.text = isWin ? "WIN" : "LOOSE";
 
         Scene s = SceneManager.GetActiveScene();
