@@ -17,13 +17,21 @@ public class PuzzleManager : MonoBehaviour
     private void Start()
     {
         DragController.OnItemFroze += CheckWin;
+        Alarm.OnAlarmTriggered += AlarmTriggered;
     }
     private void OnDestroy()
     {
         DragController.OnItemFroze -= CheckWin;
+        Alarm.OnAlarmTriggered -= AlarmTriggered;
     }
 
+    private void AlarmTriggered()
+    {
+        float diff = shapeDiffDetector.DetectDiffPercentage();
+        SaveScore(1 - diff);
+        OnFail?.Invoke(1-diff);
 
+    }
     [ButtonMethod]
     public void CheckWin()
     {
