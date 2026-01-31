@@ -12,7 +12,7 @@ public class DragController : MonoBehaviour
     
     private Vector3 mousePosition;
 
-    [Range (0.0f, 100.0f)]
+    [Range (0.0f, 1)]
     public float damping = 1.0f;
 
     [Range (0.0f, 100.0f)]
@@ -20,6 +20,9 @@ public class DragController : MonoBehaviour
     
     [Range (0.0f, 10000.0f)]  
     public float force = 100.0f;
+    
+    [Range (0.0f, 100.0f)]
+    public float inertia = 1.0f;
     
     private TargetJoint2D targetJoint2D;
     
@@ -31,6 +34,10 @@ public class DragController : MonoBehaviour
     public float matScale = 1.0f;
 
     public static event Action OnItemFroze;
+
+    void Start()
+    {
+    }
 
     void OnMouseDown()
     {
@@ -91,6 +98,10 @@ public class DragController : MonoBehaviour
 
         Mouse mouse = Mouse.current;
         mousePosition = Camera.main.ScreenToWorldPoint(mouse.position.value);
+        
+        var rb = GetComponent<Rigidbody2D>();
+        rb.inertia = inertia;
+
         //Debug.Log(mousePosition);
 
         if (targetJoint2D != null)
@@ -142,8 +153,7 @@ public class DragController : MonoBehaviour
     }
     private void Freeze(InputAction.CallbackContext context)
     {
-        if (!isDragging)
-            return;
+        
         var body = this.GetComponent<Rigidbody2D>();
         body.simulated = false;
         this.gameObject.layer = LayerMask.NameToLayer("Mask");
