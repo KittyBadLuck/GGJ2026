@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!EndScreen.isOpen && Input.GetKeyDown(KeyCode.Escape))
         {
             if (_isOpen)
             {
