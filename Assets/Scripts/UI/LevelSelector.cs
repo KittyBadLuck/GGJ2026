@@ -9,9 +9,10 @@ public class LevelSelector : MonoBehaviour
     [Scene]
     public string puzzleScene;
     public TextMeshProUGUI bestScoreText;
+    public TextMeshProUGUI levelNameText;
     public Button levelButton;
 
-    public void SetUp(bool unlocked, string scene)
+    public void SetUp(bool unlocked, string scene, int index)
     {
         puzzleScene = scene;
         if (PlayerPrefs.HasKey(puzzleScene))
@@ -22,7 +23,7 @@ public class LevelSelector : MonoBehaviour
         {
             bestScoreText.text = $"Best Score : ??";
         }
-
+        levelNameText.text = $"Level {index}";
         levelButton.interactable = unlocked;
     }
     public void StartLevel()
