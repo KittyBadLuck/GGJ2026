@@ -7,19 +7,10 @@
             "id": "7501f4ae-ff3a-4862-9b31-10a46a691614",
             "actions": [
                 {
-                    "name": "DragStart",
+                    "name": "Freeze",
                     "type": "Button",
-                    "id": "46bd37fd-71fe-4daf-821c-2ccd2c8129a9",
+                    "id": "b1ad32fa-8321-4d79-961d-ed0621805232",
                     "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Movement",
-                    "type": "PassThrough",
-                    "id": "87024f15-344f-45d8-b971-36232430a13b",
-                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -28,23 +19,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "a5b5a3f6-d8de-4016-b06f-b3d2821db2cb",
-                    "path": "<Mouse>/leftButton",
+                    "id": "d65637f3-af52-404c-aa58-a169cd17b1f7",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DragStart",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "fe782d7a-af20-4352-8796-05e4be830639",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
+                    "action": "Freeze",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
