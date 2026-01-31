@@ -28,10 +28,8 @@ public class DragController : MonoBehaviour
     public Material lineMaterial;
     public float matScale = 1.0f;
 
-    void Start()
-    {
-        
-    }
+    public static event Action OnItemFroze;
+
     void OnMouseDown()
     {
         if (isDraggable)
@@ -117,5 +115,6 @@ public class DragController : MonoBehaviour
         var body = this.GetComponent<Rigidbody2D>();
         body.simulated = false;
         this.gameObject.layer = LayerMask.NameToLayer("Mask");
+        OnItemFroze?.Invoke();
     }
 }

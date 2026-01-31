@@ -1,17 +1,27 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
     public List<Item> items = new List<Item>();
     public Transform spawnPoint;
+    public TextMeshProUGUI remainingItemText;
 
     [Serializable]
     public struct Item
     {
         public int itemCount;
         public GameObject itemPrefab;
+    }
+    private void Start()
+    {
+        UpdateTextCount();
+    }
+    private void UpdateTextCount()
+    {
+        remainingItemText.text = $"{GetItemCount()}";
     }
     public void SpawnRandomObject()
     {
@@ -29,6 +39,8 @@ public class Inventory : MonoBehaviour
         {
             items[randomIndex] = item;
         }
+
+        UpdateTextCount();
     }
 
     public int GetItemCount()
