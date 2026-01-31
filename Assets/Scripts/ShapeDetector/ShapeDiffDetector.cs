@@ -1,12 +1,13 @@
 using MyBox;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShapeDiffDetector : Singleton<ShapeDiffDetector>
 {
     public RenderTexture baseTexture;
     public RenderTexture maskTexture;
-
+    public RawImage debugger;
     int[] _basePixels;
 
     private void GetBasePixel()
@@ -28,6 +29,7 @@ public class ShapeDiffDetector : Singleton<ShapeDiffDetector>
         RenderTexture.active = rt;
         tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
         tex.Apply();
+       
         return tex.GetPixels32();
     }
     [ButtonMethod]
@@ -39,7 +41,7 @@ public class ShapeDiffDetector : Singleton<ShapeDiffDetector>
         }
 
         Color32[] pixels = GetPixelsFromRT(maskTexture);
-        var diffCount = 0;
+        float diffCount = 0;
         for (int i = 0; i < _basePixels.Length; i++)
         {
             var pixel = pixels[_basePixels[i]];
@@ -50,8 +52,7 @@ public class ShapeDiffDetector : Singleton<ShapeDiffDetector>
             }
         }
 
-
-        return diffCount / _basePixels.Length;
+        return diffCount /( _basePixels.Length * 1.0f);
     }
 }
 

@@ -48,6 +48,42 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 2.057143
       objectReference: {fileID: 0}
+    - target: {fileID: 4965527791467065959, guid: 7a86e245aa9320441ab6af01b63b7913, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4965527791467065959, guid: 7a86e245aa9320441ab6af01b63b7913, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
+      value: -0.74285716
+      objectReference: {fileID: 0}
+    - target: {fileID: 4965527791467065959, guid: 7a86e245aa9320441ab6af01b63b7913, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
+      value: 1.0285715
+      objectReference: {fileID: 0}
+    - target: {fileID: 4965527791467065959, guid: 7a86e245aa9320441ab6af01b63b7913, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: -0.74285716
+      objectReference: {fileID: 0}
+    - target: {fileID: 4965527791467065959, guid: 7a86e245aa9320441ab6af01b63b7913, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: -1.0285715
+      objectReference: {fileID: 0}
+    - target: {fileID: 4965527791467065959, guid: 7a86e245aa9320441ab6af01b63b7913, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: 0.74285716
+      objectReference: {fileID: 0}
+    - target: {fileID: 4965527791467065959, guid: 7a86e245aa9320441ab6af01b63b7913, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: -1.0285715
+      objectReference: {fileID: 0}
+    - target: {fileID: 4965527791467065959, guid: 7a86e245aa9320441ab6af01b63b7913, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: 0.74285716
+      objectReference: {fileID: 0}
+    - target: {fileID: 4965527791467065959, guid: 7a86e245aa9320441ab6af01b63b7913, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: 1.0285715
+      objectReference: {fileID: 0}
     - target: {fileID: 8197405946212885593, guid: 7a86e245aa9320441ab6af01b63b7913, type: 3}
       propertyPath: m_Name
       value: PFB_Can

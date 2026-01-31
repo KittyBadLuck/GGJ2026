@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1523b0fbd500e7148bdcd79db9bcf2ca
+guid: 4e2dbda553b586d42a1a3b1adce51920
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2391255840840876710
-    second: Newspaper_0
+      213: -708335986328442111
+    second: button_sprite_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,13 +46,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 35
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 24, y: 20, z: 25, w: 20}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Newspaper_0
+      name: button_sprite_1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2
-        width: 72
-        height: 68
-      alignment: 9
-      pivot: {x: 0.16896945, y: 0.2500762}
+        x: 1
+        y: 92
+        width: 254
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a2066094827f2120800000000000000
-      internalID: 2391255840840876710
+      spriteID: 10b64416c2c7b26f0800000000000000
+      internalID: -708335986328442111
       vertices: []
       indices: 
       edges: []
@@ -138,8 +138,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 28ea64c87098038449918afd45996f1a
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Newspaper_0: 2391255840840876710
+      button_sprite_1_0: -708335986328442111
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
