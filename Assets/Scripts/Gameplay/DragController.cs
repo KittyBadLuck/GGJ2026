@@ -1,5 +1,6 @@
 using System;
 using Mono.Cecil;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +23,10 @@ public class DragController : MonoBehaviour
     private TargetJoint2D targetJoint2D;
     
     public InputActionReference freeze;
+    
+    LineRenderer lineRenderer;
+    public Material lineMaterial;
+    public float matScale = 1.0f;
 
     public static event Action OnItemFroze;
 
@@ -54,6 +59,12 @@ public class DragController : MonoBehaviour
             
             targetJoint2D.anchor = targetJoint2D.transform.InverseTransformPoint(mousePosition);
             
+            lineRenderer = body.gameObject.AddComponent<LineRenderer>();
+            lineRenderer.alignment = LineAlignment.TransformZ;
+            lineRenderer.positionCount = 2;
+            lineRenderer.material = lineMaterial;
+            lineRenderer.startWidth = 0.1f;
+            lineRenderer.textureMode = LineTextureMode.Tile;
         }
     }
 
@@ -62,6 +73,9 @@ public class DragController : MonoBehaviour
         isDragging = false;
         Destroy(targetJoint2D);
         targetJoint2D = null;
+        
+        Destroy(lineRenderer);
+        lineRenderer = null;
     }
 
     void Update()
@@ -73,6 +87,15 @@ public class DragController : MonoBehaviour
         if (targetJoint2D != null)
         {
             targetJoint2D.target = mousePosition;
+
+            if (lineRenderer != null)
+            {
+                lineRenderer.SetPosition(0, targetJoint2D.transform.TransformPoint(targetJoint2D.anchor));
+                lineRenderer.SetPosition(1, mousePosition);
+                float distance = Vector3.Distance(targetJoint2D.transform.TransformPoint(targetJoint2D.anchor), mousePosition);
+                float width =  lineRenderer.startWidth;
+                lineRenderer.material.mainTextureScale = new Vector2(matScale, 1.0f);
+            }
         }
         
     }
