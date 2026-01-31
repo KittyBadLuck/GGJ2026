@@ -14,15 +14,24 @@ public class PuzzleManager : MonoBehaviour
     public static event Action<float> OnWin;
     public static event Action<float> OnFail;
 
+    private void Start()
+    {
+        DragController.OnItemFroze += CheckWin;
+    }
+    private void OnDestroy()
+    {
+        DragController.OnItemFroze -= CheckWin;
+    }
+
+
     [ButtonMethod]
-    public bool CheckWin()
+    public void CheckWin()
     {
         float diff = shapeDiffDetector.DetectDiffPercentage();
         if (diff < WIN_THRESHOLD)
         {
             SaveScore(1 - diff);
             OnWin?.Invoke(1-diff);
-            return true;
         }
         else
         {
@@ -31,7 +40,6 @@ public class PuzzleManager : MonoBehaviour
                 SaveScore(1 - diff);
                 OnFail?.Invoke(1 - diff);
             }
-            return false;
         }
     }
 
