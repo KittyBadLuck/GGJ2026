@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class DragController : MonoBehaviour
 {
     public bool isDraggable = true;
+    private bool markedForDrag = false;
     private bool isDragging = false;
     
     private Vector3 mousePosition;
@@ -23,6 +24,7 @@ public class DragController : MonoBehaviour
     private TargetJoint2D targetJoint2D;
     
     public InputActionReference freeze;
+    public InputActionReference release;
     
     LineRenderer lineRenderer;
     public Material lineMaterial;
@@ -32,12 +34,19 @@ public class DragController : MonoBehaviour
 
     void OnMouseDown()
     {
+        markedForDrag = true;
+    }
+
+    public void Drag()
+    {
+        Debug.Log("Drag");
+        var collider = GetComponent<Collider2D>();
         if (isDraggable)
         {
             //Debug.Log("Object Clicked");
             isDragging = true;
             
-            var collider = Physics2D.OverlapPoint(mousePosition);
+            
             if (!collider)
             {
                 return;
@@ -56,7 +65,8 @@ public class DragController : MonoBehaviour
             targetJoint2D.dampingRatio = damping;
             targetJoint2D.frequency = frequency;
             targetJoint2D.maxForce = force;
-            
+            Mouse mouse = Mouse.current;
+            mousePosition = Camera.main.ScreenToWorldPoint(mouse.position.value);
             targetJoint2D.anchor = targetJoint2D.transform.InverseTransformPoint(mousePosition);
             
             lineRenderer = body.gameObject.AddComponent<LineRenderer>();
@@ -66,20 +76,17 @@ public class DragController : MonoBehaviour
             lineRenderer.startWidth = 0.1f;
             lineRenderer.textureMode = LineTextureMode.Tile;
         }
+
+        markedForDrag = false;
     }
 
-    private void OnMouseUp()
+    public void MarkForDrag()
     {
-        isDragging = false;
-        Destroy(targetJoint2D);
-        targetJoint2D = null;
-        
-        Destroy(lineRenderer);
-        lineRenderer = null;
+        markedForDrag = true;
     }
-
     void Update()
     {
+
         Mouse mouse = Mouse.current;
         mousePosition = Camera.main.ScreenToWorldPoint(mouse.position.value);
         //Debug.Log(mousePosition);
@@ -100,16 +107,39 @@ public class DragController : MonoBehaviour
         
     }
 
+    private void LateUpdate()
+    {
+        if (markedForDrag)
+        {
+            Drag();
+        }
+    }
+
     void OnEnable()
     {
         freeze.action.started += Freeze;
+        release.action.performed += Release;
     }
 
     private void OnDisable()
     {
+        release.action.performed -= Release;
         freeze.action.started -= Freeze;
     }
 
+    private void Release(InputAction.CallbackContext context)
+    {
+        Debug.Log("Release");
+        if(!isDragging)
+            return; 
+
+        isDragging = false;
+        Destroy(targetJoint2D);
+        targetJoint2D = null;
+        
+        Destroy(lineRenderer);
+        lineRenderer = null;
+    }
     private void Freeze(InputAction.CallbackContext context)
     {
         var body = this.GetComponent<Rigidbody2D>();

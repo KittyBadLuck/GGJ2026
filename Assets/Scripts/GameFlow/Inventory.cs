@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class Inventory : MonoBehaviour
 {
     public List<Item> items = new List<Item>();
     public Transform spawnPoint;
     public TextMeshProUGUI remainingItemText;
+    
 
     [Serializable]
     public struct Item
@@ -28,8 +29,10 @@ public class Inventory : MonoBehaviour
         if (items.Count == 0) return;
         int randomIndex = UnityEngine.Random.Range(0, items.Count);
         var item = items[randomIndex];
-
-        Instantiate(item.itemPrefab, spawnPoint.position, Quaternion.identity);
+        Mouse mouse = Mouse.current;
+        var mousePosition = Camera.main.ScreenToWorldPoint(mouse.position.value);
+        mousePosition.z = 0;
+        var go = Instantiate(item.itemPrefab, mousePosition, Quaternion.identity);
         item.itemCount--;
         if (item.itemCount <= 0)
         {
@@ -38,6 +41,14 @@ public class Inventory : MonoBehaviour
         else
         {
             items[randomIndex] = item;
+        }
+        
+        var dragController = go.GetComponent<DragController>();
+        var rb = go.GetComponent<Rigidbody2D>();
+        rb.linearVelocity = Vector2.zero;
+        if (dragController != null)
+        {
+            dragController.MarkForDrag();
         }
 
         UpdateTextCount();

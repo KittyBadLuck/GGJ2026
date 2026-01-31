@@ -15,7 +15,7 @@ TagManager:
   - UI
   - Base
   - Mask
-  - 
+  - Object
   - 
   - 
   - 
@@ -45,6 +45,9 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 1424408917
+    locked: 0
+  - name: Inventory
+    uniqueID: 2409309909
     locked: 0
   - name: Item
     uniqueID: 1910914553
