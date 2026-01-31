@@ -161,7 +161,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
-  m_AngularDamping: 1
+  m_AngularDamping: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DragController
   isDraggable: 1
-  damping: 1
+  damping: 0.5
   frequency: 1
   force: 10000
   freeze: {fileID: -5010891655144973111, guid: 98de80bfea2d0c546abc6288ef95239b, type: 3}
