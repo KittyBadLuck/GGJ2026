@@ -138,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2657358612346957958}
   - component: {fileID: 8912458633214370599}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1747,7 +1747,7 @@ Transform:
   m_GameObject: {fileID: 6863804148479131276}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.67, y: -3.48, z: 0}
+  m_LocalPosition: {x: -1.82, y: -0.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2085,7 +2085,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -656382737
+  m_SortingLayerID: -1885657387
   m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &83404824417443380
