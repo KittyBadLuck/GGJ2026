@@ -191,7 +191,9 @@ MonoBehaviour:
   frequency: 1
   force: 10000
   inertia: 1.5
+  rotateSpeed: 3670
   freeze: {fileID: -5010891655144973111, guid: 98de80bfea2d0c546abc6288ef95239b, type: 3}
   release: {fileID: 4491279683642349934, guid: 98de80bfea2d0c546abc6288ef95239b, type: 3}
+  rotate: {fileID: 3240701211275643194, guid: 98de80bfea2d0c546abc6288ef95239b, type: 3}
   lineMaterial: {fileID: 2100000, guid: 526d9d31bae06ba4a8bf3454bb5c4d0a, type: 2}
   matScale: 1

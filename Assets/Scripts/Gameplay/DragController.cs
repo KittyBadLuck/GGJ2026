@@ -24,10 +24,14 @@ public class DragController : MonoBehaviour
     [Range (0.0f, 100.0f)]
     public float inertia = 1.0f;
     
+    [Range (0.0f, 10000.0f)]
+    public float rotateSpeed = 100.0f;
+    
     private TargetJoint2D targetJoint2D;
     
     public InputActionReference freeze;
     public InputActionReference release;
+    public InputActionReference rotate;
     
     LineRenderer lineRenderer;
     public Material lineMaterial;
@@ -131,12 +135,14 @@ public class DragController : MonoBehaviour
     {
         freeze.action.started += Freeze;
         release.action.performed += Release;
+        rotate.action.performed += Rotate;
     }
 
     private void OnDisable()
     {
         release.action.performed -= Release;
         freeze.action.started -= Freeze;
+        rotate.action.performed += Rotate;
     }
 
     private void Release(InputAction.CallbackContext context)
@@ -158,5 +164,15 @@ public class DragController : MonoBehaviour
         body.simulated = false;
         this.gameObject.layer = LayerMask.NameToLayer("Mask");
         OnItemFroze?.Invoke();
+    }
+
+    private void Rotate(InputAction.CallbackContext context)
+    {
+        var body = this.GetComponent<Rigidbody2D>();
+        if (isDragging)
+        {
+            float rvalue = context.ReadValue<float>();
+            body.angularVelocity += rvalue * rotateSpeed * Time.deltaTime;
+        }
     }
 }
