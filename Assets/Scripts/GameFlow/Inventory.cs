@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = System.Random;
+
 public class Inventory : MonoBehaviour
 {
     public List<Item> items = new List<Item>();
@@ -46,6 +48,7 @@ public class Inventory : MonoBehaviour
         var dragController = go.GetComponent<DragController>();
         var rb = go.GetComponent<Rigidbody2D>();
         rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = UnityEngine.Random.Range(-300f, 300f);
         if (dragController != null)
         {
             dragController.MarkForDrag();
