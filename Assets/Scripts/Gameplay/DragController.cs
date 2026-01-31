@@ -70,11 +70,12 @@ public class DragController : MonoBehaviour
             targetJoint2D.anchor = targetJoint2D.transform.InverseTransformPoint(mousePosition);
             
             lineRenderer = body.gameObject.AddComponent<LineRenderer>();
+            lineRenderer.textureMode = LineTextureMode.Tile;
             lineRenderer.alignment = LineAlignment.TransformZ;
             lineRenderer.positionCount = 2;
             lineRenderer.material = lineMaterial;
             lineRenderer.startWidth = 0.1f;
-            lineRenderer.textureMode = LineTextureMode.Tile;
+            
         }
 
         markedForDrag = false;
@@ -100,8 +101,6 @@ public class DragController : MonoBehaviour
                 lineRenderer.SetPosition(0, targetJoint2D.transform.TransformPoint(targetJoint2D.anchor));
                 lineRenderer.SetPosition(1, mousePosition);
                 float distance = Vector3.Distance(targetJoint2D.transform.TransformPoint(targetJoint2D.anchor), mousePosition);
-                float width =  lineRenderer.startWidth;
-                lineRenderer.material.mainTextureScale = new Vector2(matScale, 1.0f);
             }
         }
         
