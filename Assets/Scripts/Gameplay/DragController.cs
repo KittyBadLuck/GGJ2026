@@ -39,7 +39,6 @@ public class DragController : MonoBehaviour
 
     public void Drag()
     {
-        Debug.Log("Drag");
         var collider = GetComponent<Collider2D>();
         if (isDraggable)
         {
@@ -128,7 +127,6 @@ public class DragController : MonoBehaviour
 
     private void Release(InputAction.CallbackContext context)
     {
-        Debug.Log("Release");
         if(!isDragging)
             return; 
 
@@ -141,6 +139,8 @@ public class DragController : MonoBehaviour
     }
     private void Freeze(InputAction.CallbackContext context)
     {
+        if (!isDragging)
+            return;
         var body = this.GetComponent<Rigidbody2D>();
         body.simulated = false;
         this.gameObject.layer = LayerMask.NameToLayer("Mask");
