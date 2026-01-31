@@ -537,7 +537,6 @@ GameObject:
   - component: {fileID: 1793045142}
   - component: {fileID: 1793045141}
   - component: {fileID: 1793045140}
-  - component: {fileID: 1793045139}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -545,23 +544,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1793045139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793045138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &1793045140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -773,6 +755,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1670090024136397451, guid: e1bb0cb458f1e7144bb8be4b0088f525, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1885657387
+      objectReference: {fileID: 0}
     - target: {fileID: 3849656529250693385, guid: e1bb0cb458f1e7144bb8be4b0088f525, type: 3}
       propertyPath: m_Name
       value: PuzzleManager
@@ -816,6 +802,14 @@ PrefabInstance:
     - target: {fileID: 5655013711618591091, guid: e1bb0cb458f1e7144bb8be4b0088f525, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7568985946490556079, guid: e1bb0cb458f1e7144bb8be4b0088f525, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 7568985946490556079, guid: e1bb0cb458f1e7144bb8be4b0088f525, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.99
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
