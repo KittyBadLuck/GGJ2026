@@ -1,5 +1,7 @@
 using MyBox;
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PuzzleManager : MonoBehaviour
 {
@@ -7,31 +9,34 @@ public class PuzzleManager : MonoBehaviour
     public float winThreshold = 0.05f;
     public Inventory inventory;
 
+    public static event Action<float> OnWin;
+    public static event Action<float> OnFail;
+
     [ButtonMethod]
     public bool CheckWin()
     {
-        if(shapeDiffDetector.DetectDiffPercentage() < winThreshold)
+        float diff = shapeDiffDetector.DetectDiffPercentage();
+        if (diff < winThreshold)
         {
-            OnWin();
+            SaveScore(1 - diff);
+            OnWin?.Invoke(1-diff);
             return true;
         }
         else
         {
             if(inventory.GetItemCount() == 0)
             {
-                OnFail();
+                SaveScore(1 - diff);
+                OnFail?.Invoke(1 - diff);
             }
             return false;
         }
     }
 
-    private void OnWin()
+    private void SaveScore(float score)
     {
-        Debug.Log("Puzzle Solved!");
-    }
-    private void OnFail()
-    {
-        Debug.Log("Puzzle Failed :(!");
+        Scene s = SceneManager.GetActiveScene();
+        PlayerPrefs.SetFloat(s.name, score * 100);
     }
 
 }
