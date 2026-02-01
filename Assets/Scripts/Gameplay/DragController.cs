@@ -12,7 +12,7 @@ public class DragController : MonoBehaviour
     
     private Vector3 mousePosition;
 
-    [Range (0.0f, 100.0f)]
+    [Range (0.0f, 1)]
     public float damping = 1.0f;
 
     [Range (0.0f, 100.0f)]
@@ -21,10 +21,17 @@ public class DragController : MonoBehaviour
     [Range (0.0f, 10000.0f)]  
     public float force = 100.0f;
     
+    [Range (0.0f, 100.0f)]
+    public float inertia = 1.0f;
+    
+    [Range (0.0f, 10000.0f)]
+    public float rotateSpeed = 100.0f;
+    
     private TargetJoint2D targetJoint2D;
     
     public InputActionReference freeze;
     public InputActionReference release;
+    public InputActionReference rotate;
     
     LineRenderer lineRenderer;
     public Material lineMaterial;
@@ -32,6 +39,7 @@ public class DragController : MonoBehaviour
 
     public static event Action OnItemFroze;
     private bool canFreeze = true;
+
     void OnMouseDown()
     {
         markedForDrag = true;
@@ -91,6 +99,10 @@ public class DragController : MonoBehaviour
 
         Mouse mouse = Mouse.current;
         mousePosition = Camera.main.ScreenToWorldPoint(mouse.position.value);
+        
+        var rb = GetComponent<Rigidbody2D>();
+        rb.inertia = inertia;
+
         //Debug.Log(mousePosition);
 
         if (targetJoint2D != null)
@@ -121,6 +133,7 @@ public class DragController : MonoBehaviour
         freeze.action.started += Freeze;
         release.action.performed += Release;
         Alarm.OnAlarmTriggered += OnAlarmTriggered;
+        rotate.action.performed += Rotate;
     }
 
     private void OnDisable()
@@ -128,6 +141,7 @@ public class DragController : MonoBehaviour
         Alarm.OnAlarmTriggered -= OnAlarmTriggered;
         release.action.performed -= Release;
         freeze.action.started -= Freeze;
+        rotate.action.performed += Rotate;
     }
     private void OnAlarmTriggered()
     {
@@ -153,13 +167,21 @@ public class DragController : MonoBehaviour
     }
     private void Freeze(InputAction.CallbackContext context)
     {
-        if (!isDragging)
-            return;
         if (!canFreeze)
             return;
         var body = this.GetComponent<Rigidbody2D>();
         body.simulated = false;
         this.gameObject.layer = LayerMask.NameToLayer("Mask");
         OnItemFroze?.Invoke();
+    }
+
+    private void Rotate(InputAction.CallbackContext context)
+    {
+        var body = this.GetComponent<Rigidbody2D>();
+        if (isDragging)
+        {
+            float rvalue = context.ReadValue<float>();
+            body.angularVelocity += rvalue * rotateSpeed * Time.deltaTime;
+        }
     }
 }
