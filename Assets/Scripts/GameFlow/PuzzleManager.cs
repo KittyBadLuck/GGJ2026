@@ -4,9 +4,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PuzzleManager : MonoBehaviour
+public class PuzzleManager : Singleton<PuzzleManager>
 {
-    public const float WIN_THRESHOLD = 0.05f;
+    [Range(0, 1)]
+    public float WIN_THRESHOLD = 0.05f;
+    
+    
 
     public ShapeDiffDetector shapeDiffDetector;
 

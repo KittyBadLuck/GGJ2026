@@ -21,7 +21,7 @@ public class LevelSelectorMenu : MonoBehaviour
             index++;
 
             float score = PlayerPrefs.GetFloat(s, 0);
-            precedentIsUnlocked =( score / 100) >( 1 - PuzzleManager.WIN_THRESHOLD);
+            precedentIsUnlocked =( score / 100) >( 1 - PuzzleManager.Instance.WIN_THRESHOLD);
 
 
         }
