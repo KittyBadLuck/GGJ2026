@@ -1,11 +1,25 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public GameObject overlay;
     private bool _isOpen = false;
 
+    public Sprite musicMutedSprite;
+    public Sprite musicUnmutedSprite;
+    public Image musicImage;
+
+    public Sprite soundMutedSprite;
+    public Sprite soundUnmutedSprite;
+    public Image soundImage;
+
+    private void Start()
+    {
+        musicImage.sprite = !AudioManager.Instance.isMusicMuted ? musicUnmutedSprite : musicMutedSprite;
+        soundImage.sprite = !AudioManager.Instance.isSFXMuted ? soundUnmutedSprite : soundMutedSprite;
+    }
     private void Update()
     {
         if (!EndScreen.isOpen && Input.GetKeyDown(KeyCode.Escape))
@@ -13,7 +27,16 @@ public class PauseMenu : MonoBehaviour
             TryOpen();
         }
     }
-
+    public void SwitchMusic()
+    {
+        AudioManager.Instance.MuteMusic();
+        musicImage.sprite = !AudioManager.Instance.isMusicMuted ? musicUnmutedSprite : musicMutedSprite;
+    }
+    public void SwitchSFX()
+    {
+        AudioManager.Instance.MuteSFX();
+        soundImage.sprite = !AudioManager.Instance.isSFXMuted ? soundUnmutedSprite : soundMutedSprite;
+    }
     public void TryOpen()
     {
         if (EndScreen.isOpen)
