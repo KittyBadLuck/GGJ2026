@@ -38,6 +38,7 @@ public class DragController : MonoBehaviour
     public float matScale = 1.0f;
 
     public static event Action OnItemFroze;
+    public static event Action OnItemPickup;
     private bool canFreeze = true;
 
     void OnMouseDown()
@@ -47,6 +48,7 @@ public class DragController : MonoBehaviour
 
     public void Drag()
     {
+        OnItemPickup?.Invoke();
         var collider = GetComponent<Collider2D>();
         if (isDraggable)
         {
@@ -84,7 +86,7 @@ public class DragController : MonoBehaviour
             lineRenderer.startWidth = 0.1f;
             lineRenderer.sortingLayerName = "UI";
             lineRenderer.sortingOrder = 50;
-            
+            OnItemPickup?.Invoke();
         }
 
         markedForDrag = false;
