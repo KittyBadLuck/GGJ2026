@@ -177,6 +177,9 @@ public class DragController : MonoBehaviour
         body.simulated = false;
         this.gameObject.layer = LayerMask.NameToLayer("Mask");
         OnItemFroze?.Invoke();
+        
+        var sprite = this.GetComponent<SpriteRenderer>();
+        sprite.color = Color.darkGray;
     }
 
     private void Rotate(InputAction.CallbackContext context)
