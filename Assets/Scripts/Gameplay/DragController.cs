@@ -179,6 +179,7 @@ public class DragController : MonoBehaviour
         OnItemFroze?.Invoke();
         
         var sprite = this.GetComponent<SpriteRenderer>();
+        sprite.sortingLayerName = "Mask";
         sprite.color = Color.darkGray;
     }
 
@@ -188,6 +189,7 @@ public class DragController : MonoBehaviour
         if (isDragging)
         {
             float rvalue = context.ReadValue<float>();
+            rvalue = Mathf.Clamp(rvalue, -1f, 1);
             body.angularVelocity += rvalue * rotateSpeed * Time.deltaTime;
         }
     }
