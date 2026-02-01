@@ -46,6 +46,9 @@ TagManager:
   - name: Foreground
     uniqueID: 1424408917
     locked: 0
+  - name: Mask
+    uniqueID: 396836019
+    locked: 0
   - name: Inventory
     uniqueID: 2409309909
     locked: 0
