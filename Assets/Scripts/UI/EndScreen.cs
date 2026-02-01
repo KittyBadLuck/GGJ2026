@@ -1,14 +1,18 @@
+using System.Collections;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class EndScreen : MonoBehaviour
 {
-    public GameObject overlay;
+    public CanvasGroup overlay;
     public static bool isOpen;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI resultText;
     public GameObject playNextLevelButton;
+
+    public float failOpenDelay = 0.2f;
 
     private void Start()
     {
@@ -27,12 +31,18 @@ public class EndScreen : MonoBehaviour
     }
     private void OpenFail(float percentage)
     {
-        Open(false, percentage);
+        StartCoroutine(OpenWithDelay(false, percentage));
+    }
+    IEnumerator OpenWithDelay(bool isWin, float percentage)
+    {
+        yield return new WaitForSeconds(failOpenDelay);
+
+        Open(isWin, percentage);
     }
     private void Open(bool isWin, float percentage)
     {
         isOpen = true;
-        overlay.SetActive(true);
+        overlay.gameObject.SetActive(true);
         scoreText.text = $"Score : {(percentage * 100).ToString("F2")}%";
         resultText.text = isWin ? "WIN" : "LOOSE";
 
@@ -47,6 +57,7 @@ public class EndScreen : MonoBehaviour
         {
             playNextLevelButton.SetActive(false);
         }
+        overlay.DOFade(1, 0.2f);
     }
     public void RetryLevel()
     {

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8335952290323890308}
   - component: {fileID: 1839173204576008715}
   - component: {fileID: 6705865558293603312}
+  - component: {fileID: 4558121120754153662}
   m_Layer: 0
   m_Name: Overlay
   m_TagString: Untagged
@@ -102,6 +103,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!225 &4558121120754153662
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105837573942289311}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3054958761844366573
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,10 +432,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 343ed4a833c4e2f4c9a675087aed3cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EndScreen
-  overlay: {fileID: 1105837573942289311}
+  overlay: {fileID: 4558121120754153662}
   scoreText: {fileID: 1030539354932096587}
   resultText: {fileID: 1470653271255923460}
   playNextLevelButton: {fileID: 2282258956401604739}
+  failOpenDelay: 0.5
 --- !u!1 &9018649000685975412
 GameObject:
   m_ObjectHideFlags: 0

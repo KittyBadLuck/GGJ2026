@@ -31,7 +31,7 @@ public class DragController : MonoBehaviour
     public float matScale = 1.0f;
 
     public static event Action OnItemFroze;
-
+    private bool canFreeze = true;
     void OnMouseDown()
     {
         markedForDrag = true;
@@ -120,29 +120,42 @@ public class DragController : MonoBehaviour
     {
         freeze.action.started += Freeze;
         release.action.performed += Release;
+        Alarm.OnAlarmTriggered += OnAlarmTriggered;
     }
 
     private void OnDisable()
     {
+        Alarm.OnAlarmTriggered -= OnAlarmTriggered;
         release.action.performed -= Release;
         freeze.action.started -= Freeze;
     }
-
-    private void Release(InputAction.CallbackContext context)
+    private void OnAlarmTriggered()
     {
-        if(!isDragging)
-            return; 
+        canFreeze = false;
+        Release();
+    }
+    private void Release()
+    {
+        if (!isDragging)
+            return;
 
         isDragging = false;
         Destroy(targetJoint2D);
         targetJoint2D = null;
-        
+
         Destroy(lineRenderer);
         lineRenderer = null;
+    }
+    private void Release(InputAction.CallbackContext context)
+    {
+
+        Release();
     }
     private void Freeze(InputAction.CallbackContext context)
     {
         if (!isDragging)
+            return;
+        if (!canFreeze)
             return;
         var body = this.GetComponent<Rigidbody2D>();
         body.simulated = false;
