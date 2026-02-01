@@ -14,7 +14,7 @@ public class PuzzleManager : MonoBehaviour
 
     public static event Action<float> OnWin;
     public static event Action<float> OnFail;
-
+    public static event Action OnDisplay;
     private void Start()
     {
         DragController.OnItemFroze += MarkForCheck;
@@ -24,6 +24,11 @@ public class PuzzleManager : MonoBehaviour
     {
         DragController.OnItemFroze -= MarkForCheck;
         Alarm.OnAlarmTriggered -= AlarmTriggered;
+    }
+
+    public void DisplayVisuals()
+    {
+        OnDisplay?.Invoke();
     }
 
     private void AlarmTriggered()
@@ -41,7 +46,6 @@ public class PuzzleManager : MonoBehaviour
     public void CheckWin()
     {
         float diff = shapeDiffDetector.DetectDiffPercentage();
-        Debug.Log($"diff is {diff}");
         if (diff < WIN_THRESHOLD)
         {
             SaveScore(1 - diff);

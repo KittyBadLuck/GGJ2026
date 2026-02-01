@@ -10,14 +10,23 @@ public class PauseMenu : MonoBehaviour
     {
         if (!EndScreen.isOpen && Input.GetKeyDown(KeyCode.Escape))
         {
-            if (_isOpen)
-            {
-                Resume();
-            }
-            else
-            {
-                Open();
-            }
+            TryOpen();
+        }
+    }
+
+    public void TryOpen()
+    {
+        if (EndScreen.isOpen)
+        {
+            return;
+        }
+        if (_isOpen)
+        {
+            Resume();
+        }
+        else
+        {
+            Open();
         }
     }
 
@@ -36,12 +45,14 @@ public class PauseMenu : MonoBehaviour
 
     public void Retry()
     {
+        Time.timeScale = 1;
         Scene s = SceneManager.GetActiveScene();
         SceneManager.LoadScene(s.buildIndex);
     }
 
     public void ReturnToMain()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 }

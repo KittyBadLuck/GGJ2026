@@ -450,6 +450,7 @@ GameObject:
   - component: {fileID: 617271707724700987}
   - component: {fileID: 2242152793909087831}
   - component: {fileID: 3387278742761424602}
+  - component: {fileID: 948871748181609284}
   m_Layer: 0
   m_Name: PuzzleManager
   m_TagString: Untagged
@@ -539,6 +540,28 @@ MonoBehaviour:
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!95 &948871748181609284
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3849656529250693385}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fcc23e474300f944aab76773ec3cb7dc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3906907144859580587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,6 +1204,62 @@ PrefabInstance:
     - target: {fileID: 98496336479881781, guid: 674845109a11b9447bad90150e0e26d2, type: 3}
       propertyPath: m_Name
       value: PauseMenucanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 648282375523860493, guid: 674845109a11b9447bad90150e0e26d2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 648282375523860493, guid: 674845109a11b9447bad90150e0e26d2, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809356049262458017, guid: 674845109a11b9447bad90150e0e26d2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809356049262458017, guid: 674845109a11b9447bad90150e0e26d2, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809356049262458017, guid: 674845109a11b9447bad90150e0e26d2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809356049262458017, guid: 674845109a11b9447bad90150e0e26d2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490649824434351454, guid: 674845109a11b9447bad90150e0e26d2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490649824434351454, guid: 674845109a11b9447bad90150e0e26d2, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490649824434351454, guid: 674845109a11b9447bad90150e0e26d2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490649824434351454, guid: 674845109a11b9447bad90150e0e26d2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950987381570374191, guid: 674845109a11b9447bad90150e0e26d2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950987381570374191, guid: 674845109a11b9447bad90150e0e26d2, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950987381570374191, guid: 674845109a11b9447bad90150e0e26d2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950987381570374191, guid: 674845109a11b9447bad90150e0e26d2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8695177342759712127, guid: 674845109a11b9447bad90150e0e26d2, type: 3}
       propertyPath: m_Pivot.x
