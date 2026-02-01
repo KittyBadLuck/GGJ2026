@@ -188,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DragController
   isDraggable: 1
   damping: 0.5
-  frequency: 1
+  frequency: 0.5
   force: 10000
   inertia: 1.5
   rotateSpeed: 3670

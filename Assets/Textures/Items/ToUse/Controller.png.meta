@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fa1157bafe6c2cc4e95d50ecf14e73d6
+guid: eccd6e0a6bf07eb47ae583317d5cc513
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8763529829561000117
-    second: Canned_Food_0
+      213: 2086207200247368052
+    second: Controller_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 35
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Canned_Food_0
+      name: Controller_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 0
-        width: 52
-        height: 72
-      alignment: 9
-      pivot: {x: 0.49601415, y: 0.48992518}
+        x: 0
+        y: 12
+        width: 72
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b4f1a7a1d00b16680800000000000000
-      internalID: -8763529829561000117
+      spriteID: 4794b9a3562b3fc10800000000000000
+      internalID: 2086207200247368052
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c8afc189be965b54bbfc47570b4898a1
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Canned_Food_0: -8763529829561000117
+      Controller_0: 2086207200247368052
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
