@@ -1,6 +1,4 @@
 using System;
-using Mono.Cecil;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +9,8 @@ public class DragController : MonoBehaviour
     private bool isDragging = false;
     
     private Vector3 mousePosition;
+
+    public ParticleSystem _vfx;
 
     [Range (0.0f, 1)]
     public float damping = 1.0f;
@@ -169,6 +169,8 @@ public class DragController : MonoBehaviour
     {
         if (!canFreeze)
             return;
+        canFreeze = false;
+        _vfx.Emit(30);
         var body = this.GetComponent<Rigidbody2D>();
         body.simulated = false;
         this.gameObject.layer = LayerMask.NameToLayer("Mask");
